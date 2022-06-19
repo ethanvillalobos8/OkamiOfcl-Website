@@ -29,12 +29,13 @@ const Success = () => {
           <a className="email" href="mailto:order@example.com">
             support@okamiofcl.com
           </a>
+
+          <Link href="/">
+            <button type="button" className="btn">
+              Continue Shopping
+            </button>
+          </Link>
         </p>
-        <Link href="/">
-          <button type="button" width="300px" className="btn">
-            Continue Shopping
-          </button>
-        </Link>
       </div>
     </div>
   )

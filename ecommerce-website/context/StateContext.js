@@ -34,7 +34,7 @@ export const StateContext = ( {children} ) => {
             setCartItems([...cartItems, { ...product }]);
         }
 
-        toast.success(`${product.name} x${qty} added to your cart.`);
+        toast.success(`${product.name} x${qty} added to your cart.`, {style: {fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif'}});
     }
 
     const onRemove = (product) => {
