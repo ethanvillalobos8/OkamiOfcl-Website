@@ -18,7 +18,7 @@ const ProductDetails = ({ product, products }) => {
 
   return (
     <div>
-        <div className="product-detail-container">
+        <div id="productDetailContainer" className="product-detail-container">
             <div>
                 <div className="image-container">
                     <img src={urlFor(image && image[index])} className="product-detail-image" />
@@ -43,10 +43,10 @@ const ProductDetails = ({ product, products }) => {
                         <AiFillStar />
                         <AiFillStar />
                         <AiFillStar />
-                        <AiOutlineStar />
+                        <AiFillStar />
                     </div>
                     <p>
-                        (20)
+                        {/* ({Math.floor(Math.random() * 19)}) */12}
                     </p>
                 </div>
                 <h4>Details: </h4>

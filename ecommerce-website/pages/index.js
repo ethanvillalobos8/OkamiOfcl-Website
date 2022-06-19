@@ -9,16 +9,17 @@ const Home = ({ products, bannerData }) => {
     <>
       <HeroBanner heroBanner={bannerData.length && bannerData[0]} />
 
-      <div className="products-heading">
-        <h2>Best Selling Products</h2>
-        <p>Show off your favorite characters!</p>
+      <div id="browseProducts" className="products-heading">
+        <h2>Browse our Products!</h2>
+        <p>We promise you'll love them.</p>
       </div>
 
       <div className="products-container">
         {products?.map((product) => <Product key= {product.id} product={product} />)}
       </div>
 
-      <FooterBanner footerBanner={bannerData && bannerData[0]}/>
+      {/* Use when you want to add a footer with discount info */}
+      {/* <FooterBanner footerBanner={bannerData && bannerData[0]}/> */}
     </>
   )
 }
