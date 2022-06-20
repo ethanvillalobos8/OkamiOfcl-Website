@@ -502,6 +502,7 @@ padding: 30px 65px;
 
 .product-detail-container{
   display: flex;
+  position: relative;
   gap: 40px;
   margin: 40px;
   margin-top: 60px;
@@ -512,7 +513,7 @@ padding: 30px 65px;
 .product-detail-image{
   border-radius: 15px;
   background-color: #ebebeb;
-
+  
   width: 400px;
   height: 400px;
   cursor: pointer;
@@ -791,8 +792,8 @@ padding: 6px;
     flex-wrap: wrap;
     }
   .product-detail-container .product-detail-image{
-    width: 350px;
-    height: 350px;
+    width: 100%;
+    height: 100%;
   }
   .cart-container{
     width: auto;
