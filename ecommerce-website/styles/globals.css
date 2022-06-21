@@ -385,12 +385,11 @@ text-align: end;
   font-weight: 400;
   color: #131313;
   text-align: center;
-  margin-top: 80px;
   padding: 10px 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 5px;
   justify-content: center;
 }
 .footer-container .icons{
