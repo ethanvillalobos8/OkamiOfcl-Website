@@ -25,7 +25,7 @@ const Success = () => {
         <h2>Thank you for your order!</h2>
         <p className="email-msg">Check your email inbox for your receipt.</p>
         <p className="description">
-          If you have any questions or concerns, please email
+          If you have any questions or concerns, please email 
           <a className="email" href="mailto:order@example.com">
             support@okamiofcl.com
           </a>
