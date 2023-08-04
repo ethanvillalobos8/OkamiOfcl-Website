@@ -1,11 +1,17 @@
-import React from 'react'
-import Link from 'next/link'
+import React from 'react';
+import Link from 'next/link';
 
-import { urlFor } from '../lib/client'
+import { urlFor } from '../lib/client';
 
-const Product = ({ product: { image, name, slug, price }}) => {
+const Product = ({ product: { image, name, slug, price }, onSelect }) => {
+  const handleClick = () => {
+    if (onSelect) {
+      onSelect();
+    }
+  };
+
   return (
-    <div>
+    <div onClick={handleClick}>
       <Link href={`/product/${slug.current}`}>
         <div className="product-card">
           <img
@@ -19,7 +25,7 @@ const Product = ({ product: { image, name, slug, price }}) => {
         </div>
       </Link>
     </div>
-  )
-}
+  );
+};
 
-export default Product
+export default Product;
