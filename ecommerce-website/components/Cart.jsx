@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import Link from 'next/link';
 import { AiOutlineMinus, AiOutlinePlus, AiOutlineLeft, AiOutlineShopping } from 'react-icons/ai';
 import { TiDeleteOutline } from 'react-icons/ti';
@@ -11,7 +11,13 @@ import getStripe from '../lib/getStripe';
 
 const Cart = () => {
   const cartRef = useRef();
-  const { totalPrice, totalQuantities, cartItems, setShowCart, toggleCartItemQuantity, onRemove } = useStateContext();
+  const { totalPrice, cartItems, setShowCart, toggleCartItemQuantity, onRemove, setCartItems } = useStateContext();
+  const [totalQuantities, setTotalQuantities] = useState(0); // Use useState to track totalQuantities
+
+  // Function to clear the cart when a new product is selected
+  const clearCart = () => {
+    setCartItems([]);
+  };
 
   const handleCheckout = async () => {
     const stripe = await getStripe();
@@ -24,14 +30,23 @@ const Cart = () => {
       body: JSON.stringify(cartItems),
     });
 
-    if(response.statusCode === 500) return;
+    if (response.statusCode === 500) return;
 
     const data = await response.json();
 
     toast.loading('Redirecting...');
 
+    // Clear the cart before redirecting to the checkout page
+    clearCart();
+
     stripe.redirectToCheckout({ sessionId: data.id });
-  }
+  };
+
+  useEffect(() => {
+    // Calculate total quantities when cartItems change
+    const totalQty = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+    setTotalQuantities(totalQty);
+  }, [cartItems]);
 
   return (
     <div className="cart-wrapper" ref={cartRef}>
@@ -45,7 +60,7 @@ const Cart = () => {
         {cartItems.length < 1 && (
           <div className="empty-cart">
             <AiOutlineShopping size={150} />
-            <h3>Your shopping bag is empty</h3>
+            <h3>Your cart is empty</h3>
             <Link href="/">
               <button
                 type="button"
@@ -81,13 +96,13 @@ const Cart = () => {
                       </span>
                     </p>
                   </div>
-                    <button 
-                      type="button"
-                      className="remove-item"
-                      onClick={() => onRemove(item)}
-                    >
-                      <TiDeleteOutline />
-                    </button>
+                  <button
+                    type="button"
+                    className="remove-item"
+                    onClick={() => onRemove(item)}
+                  >
+                    <TiDeleteOutline />
+                  </button>
                 </div>
               </div>
             </div>
@@ -108,7 +123,7 @@ const Cart = () => {
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Cart
+export default Cart;

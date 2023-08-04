@@ -21,7 +21,7 @@ const Footer = () => {
         <p>
           <AiFillInstagram className="icons"/>
           <Link href="https://www.instagram.com/okamiofcl/">@okamiofcl</Link>
-          <Link className="color" href="/about"> - Read Me</Link>
+          <Link className="color" href="/about"> - About Me</Link>
           {/* <AiOutlineTwitter /> */}
         </p>
       </div>

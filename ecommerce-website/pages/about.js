@@ -6,7 +6,7 @@ const About = () => {
         <div className="center about-container-inner">
             <h3>Thank you.</h3>
             <br></br>
-            <p>Thank you for supporting me through a purchase, a website visit, or even just a quick scroll-through of our products.
+            <p style={{ textAlign: 'justify' }}>Thank you for supporting me through a purchase, a website visit, or even just a quick scroll-through of our products.
                 I&apos;m a computer science major and this website you&apos;re on was developed and deployed by me. It took a lot of time, and
                 still there&apos;s so much I have to add, so much more to learn, and so many more hours ahead of me. I&apos;m proud of how it
                 turned out so far and I&apos;m excited for the day it becomes the e-commerce website and business of my dreams. As you can
