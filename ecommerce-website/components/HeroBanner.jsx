@@ -12,7 +12,7 @@ import { urlFor } from '../lib/client';
 const HeroBanner = ({ heroBanner }) => {
   return (
     <div>
-      <div class="pre-order-bar">
+      <div className="pre-order-bar">
         All orders are pre-orders. Shipments will go out 2 weeks from now.
       </div>  
       <div className="hero-banner-container">
